@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#https://technotile.ru/bitrix/backup/technotile.ru_20210927_181657_full_06c5c772.tar.gz
-
 URL=$1
 COUNTER=1
 
@@ -14,19 +12,17 @@ function f_download_backup(){
 
     if [[ `wget -S --spider "$URL"  2>&1 | grep 'HTTP/1.1 200 OK'` ]]
     then
-        wget -P ./site_backup -c "$URL"
-        #echo "good"
+        wget -cP ./site_backup -c "$URL"
     fi
 
     while true
     do
         if [[ `wget -S --spider "$URL.$COUNTER"  2>&1 | grep 'HTTP/1.1 200 OK'` ]]
         then 
-            echo "file exists"
+            echo "    file exists"
             wget -P ./site_backup -c "$URL.$COUNTER"
-            #echo "$URL.$COUNTER"
         else
-            echo "file does not exist"
+            echo "    all files have already been downloaded."
             break
         fi
         
@@ -36,7 +32,7 @@ function f_download_backup(){
 
 function f_unpack_backup(){
     
-    echo "unpacking."
+    echo "    unpacking."
 
     if [ ! -d ./htdocs ]
     then
@@ -46,5 +42,24 @@ function f_unpack_backup(){
     cat *$(ls -v site_backup/*tar.*) | tar zxf - -C ./htdocs
 }
 
-f_download_backup
-f_unpack_backup
+function f_create_dirs(){
+    mkdir -p system/php
+    mkdir -p system/nginx
+    mkdir -p system/mysql
+}
+
+if [ -n "$1" ]
+then
+    f_download_backup
+    f_create_dirs
+
+    if [ ! -d "./htdocs" ]
+    then
+        f_unpack_backup
+    else
+        echo "    directory './htdocs' is exists. unpacking have been skipped."
+    fi
+else
+    f_create_dirs
+fi
+

@@ -54,5 +54,8 @@ RUN \
 
 1. В директории с docker-compose.yml выполняем следующие комманды
 
+bash ./download_backup_for_bitrix.sh URL -скачает архив и распакует его
+bash ./download_backup_for_bitrix.sh -создаст директории для логов
+
 + docker-compose build
 + docker-compose up -d

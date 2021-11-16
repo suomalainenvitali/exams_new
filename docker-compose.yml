@@ -44,7 +44,7 @@ services:
     container_name: ${PROJECT}-mysql-${MYSQL_VERSION}
     volumes:
       - ./system/mysql/:/tmp/log
-      - ./dbdata:/var/lib/mysql
+      - dbdata:/var/lib/mysql
     env_file:
       - .env.bitrix
       - .env
