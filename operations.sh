@@ -1,9 +1,11 @@
 #!/bin/bash
 
-URL=$1
+
 COUNTER=1
 
 function f_download_backup(){
+
+    URL=$1
 
     if [ ! -d site_backup ]
     then
@@ -37,29 +39,24 @@ function f_unpack_backup(){
     if [ ! -d ./htdocs ]
     then
         mkdir ./htdocs
-    fi
-    
-    cat *$(ls -v site_backup/*tar.*) | tar zxf - -C ./htdocs
-}
-
-function f_create_dirs(){
-    mkdir -p system/php
-    mkdir -p system/nginx
-    mkdir -p system/mysql
-}
-
-if [ -n "$1" ]
-then
-    f_download_backup
-    f_create_dirs
-
-    if [ ! -d "./htdocs" ]
-    then
-        f_unpack_backup
+        cat *$(ls -v site_backup/*tar.*) | tar zxf - -C ./htdocs
     else
         echo "    directory './htdocs' is exists. unpacking have been skipped."
     fi
-else
-    f_create_dirs
-fi
+    
+    
+}
+
+function f_create_log_dirs(){
+    mkdir -p system/php
+    mkdir -p system/nginx
+    mkdir -p system/mysql
+
+    ls -l ./system
+}
+
+function f_recreate_log_dirs(){
+    rm -R ./system
+    f_create_log_dirs
+}
 
