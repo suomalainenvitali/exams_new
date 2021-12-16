@@ -2,12 +2,6 @@
 
 source ./operations.sh
 
-##  http://manao-team.com/bitrix/backup/manao-team.com_20211101_175838_full_99e1ae5e.tar.gz
-
-# c create log dirs
-# d delete
-# n all
-
 while getopts "cdn:u" OPT
 do
 
