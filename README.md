@@ -54,8 +54,13 @@ RUN \
 
 1. В директории с docker-compose.yml выполняем следующие комманды
 
-bash ./download_backup_for_bitrix.sh URL -скачает архив и распакует его
-bash ./download_backup_for_bitrix.sh -создаст директории для логов
+bash ./run.sh -n URL -скачает архив и распакует его, создаст каталоги для логов.
+bash ./run.sh -c -создаст директории для логов.
+bash ./run.sh -u -распаковать архив, если нет рспакованных файлов проекта, иначе ничего не делает.
+bash ./run.sh -d -удалит каталоги с логами и создть их заново.
+пример: ./run.sh -ud
 
 + docker-compose build
 + docker-compose up -d
+
+
