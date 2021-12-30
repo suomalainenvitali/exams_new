@@ -55,6 +55,12 @@ function f_create_log_dirs(){
     ls -l ./system
 }
 
+function f_create_dbdump_dir(){
+    mkdir dbdump
+
+    ls -l dbdump
+}
+
 function f_recreate_log_dirs(){
     rm -R ./system
     f_create_log_dirs

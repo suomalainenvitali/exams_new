@@ -8,11 +8,13 @@ do
     case "$OPT" in
     "n")
         f_download_backup "$OPTARG"
-        f_create_dirs
+        f_create_log_dirs
+        f_create_dbdump_dir
         f_unpack_backup
     ;;
     "c")
         f_create_log_dirs
+        f_create_dbdump_dir
     ;;
     "d")
         f_recreate_log_dirs
