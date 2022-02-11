@@ -43,8 +43,7 @@ function f_unpack_backup(){
     else
         echo "    directory './htdocs' is exists. unpacking have been skipped."
     fi
-    
-    
+
 }
 
 function f_create_log_dirs(){
@@ -66,3 +65,22 @@ function f_recreate_log_dirs(){
     f_create_log_dirs
 }
 
+function f_create_additional_site(){
+
+    SITE_NAME=$1
+
+    if [ ! -d ./htdocs/"$SITE_NAME" ]
+    then
+        mkdir -p ./htdocs/"$SITE_NAME"
+        ln -s ../bitrix ./htdocs/"$SITE_NAME"/
+        ln -s ../local ./htdocs/"$SITE_NAME"/
+        ln -s ../upload ./htdocs/"$SITE_NAME"/
+
+        cp ./docker/nginx/conf.d/sites-avaliable/default.conf ./docker/nginx/conf.d/sites-avaliable/"$SITE_NAME.conf"
+
+        sed -i -e "s|server_name localsite;|server_name $SITE_NAME;|g" ./docker/nginx/conf.d/sites-avaliable/"$SITE_NAME.conf"
+    else
+        echo "folder exists."
+    fi
+
+}

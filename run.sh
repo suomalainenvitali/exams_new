@@ -2,7 +2,7 @@
 
 source ./operations.sh
 
-while getopts "cdn:u" OPT
+while getopts "cdn:us:" OPT
 do
 
     case "$OPT" in
@@ -21,6 +21,9 @@ do
     ;;
     "u")
         f_unpack_backup
+    ;;
+    "s")
+        f_create_additional_site "$OPTARG"
     ;;
     "*")
     ;;
