@@ -24,11 +24,11 @@ RUN \
   docker-php-ext-install -j$(($(nproc) + 2)) gd
 
 RUN \
-  apk add --no-cache bzip2-dev curl-dev libxml2-dev libzip-dev tidyhtml-dev libxslt-dev && \
+  apk add --no-cache bzip2-dev curl-dev libxml2-dev libzip-dev tidyhtml-dev libxslt-dev php7-iconv && \
   docker-php-ext-install -j$(($(nproc) + 2)) bcmath bz2 calendar ctype curl dba \
-  iconv mysqli opcache pcntl pdo pdo_mysql phar posix \
+  mysqli opcache pcntl pdo pdo_mysql phar posix \
   session shmop soap sockets sysvmsg sysvsem sysvshm tidy tokenizer \
-  xml xmlwriter xsl zip #xmlrpc
+  xml xmlwriter xsl zip #xmlrpc iconv
 
 FROM build as bitrix
 COPY conf.d/php.ini /usr/local/etc/php/conf.d/php.ini
