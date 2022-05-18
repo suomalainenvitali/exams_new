@@ -31,7 +31,7 @@ services:
     container_name: ${PROJECT}-nginx
     volumes:
       - ./system/nginx:/var/log/nginx
-      - ./htdocs:/var/www/htdocs
+      - ./htdocs:/var/www/bitrix
     env_file:
       - .env.bitrix
     ports:
