@@ -50,7 +50,9 @@ function f_create_log_dirs(){
     mkdir -p system/php
     mkdir -p system/nginx
     mkdir -p system/mysql
-
+    
+    mkdir ./htdocs
+    
     ls -l ./system
 }
 
