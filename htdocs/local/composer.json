@@ -1,0 +1,16 @@
+{
+    "name": "vendor/local",
+    "description": "решение «Интернет-магазин»",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Local\\": "../local/php_interface/lib/"
+        }
+    },
+    "authors": [
+        {
+            "name": "suomalainenvitali",
+            "email": "suomalainenvitali@gmail.com"
+        }
+    ],
+    "require": {}
+}

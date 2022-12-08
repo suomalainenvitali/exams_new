@@ -1,0 +1,12 @@
+*.jpg
+*.jpeg
+*.gif
+*.png
+*.flv
+*.mp4
+*.wmv
+*.mp3
+*.wma
+*.aac
+htdocs/bitrix/
+htdocs/local/vendor/
