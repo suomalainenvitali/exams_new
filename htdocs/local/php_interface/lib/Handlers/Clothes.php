@@ -4,6 +4,8 @@ namespace Vendor\Local\Handlers;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Iblock\ElementTable;
 
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+
 Loc::loadMessages(__FILE__);
 
 define("IBLOCK_CATALOG", 2);

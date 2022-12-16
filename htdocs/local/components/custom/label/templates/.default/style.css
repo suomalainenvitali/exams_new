@@ -1,0 +1,25 @@
+/*Labels*/
+
+.label-container 
+{
+	display: flex;
+	flex-wrap: wrap;
+	font-weight: 600;
+}
+
+.label-container-link 
+{
+	border-radius: 5px;
+	padding: 5px;
+	margin:3px;
+    font-size: 12px;
+    text-decoration: none;
+	color: #000;
+}
+
+.label-container-link:active,
+.label-container-link:hover
+{
+	text-decoration: none;
+	color: #000;
+}

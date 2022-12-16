@@ -1,0 +1,23 @@
+bitrix/components/bitrix/catalog.element/temlates/bootstrap_v4/template.php - детальная карточка
+bitrix/components/bitrix/catalog.item/temlates/bootstrap_v4/template.php
+
+/*Labels*/
+
+.label-container {
+	display: flex;
+	flex-wrap: wrap;
+	font-weight: 600;
+}
+
+.label-container__label {
+	border-radius: 0.5rem;
+	padding: 0.25rem;
+	margin: 0.25rem;
+}
+
+<div class="label-container">
+    <p class="label-container__label" style="background:rgb(12,136,181); ">Промокод 1</p>
+    <p class="label-container__label" style="background:rgb(67,42,11); ">Промокод 322</p>
+    <p class="label-container__label" style="background:rgb(52,142,71); ">Промокод 3</p>
+    <p class="label-container__label" style="background:rgb(181,81,31); ">Промокод 4</p>
+</div>
